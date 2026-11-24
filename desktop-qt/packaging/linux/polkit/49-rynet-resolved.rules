@@ -1,0 +1,15 @@
+// ryNet: lets the core, started by an ordinary user with only CAP_NET_ADMIN, point systemd-resolved at the tunnel's DNS
+// (resolvectl dns / domain / default-route / revert on rynet0) without a password prompt.
+// This cannot be narrowed to the rynet0 link: the resolve1 actions carry no link name in their details, so the rule
+// allows these four actions for any link, but only to a user at a local active session; others keep the default policy.
+// The same rule for polkit 0.105 is in 49-rynet-resolved.pkla; both are installed by postinstall.sh and Platform::grantTun.
+polkit.addRule(function(action, subject) {
+    var ids = [
+        "org.freedesktop.resolve1.set-dns-servers",
+        "org.freedesktop.resolve1.set-domains",
+        "org.freedesktop.resolve1.set-default-route",
+        "org.freedesktop.resolve1.revert"
+    ];
+    if (ids.indexOf(action.id) >= 0 && subject.local && subject.active)
+        return polkit.Result.YES;
+});

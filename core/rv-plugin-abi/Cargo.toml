@@ -1,0 +1,8 @@
+[package]
+name = "rv-plugin-abi"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+description = "Двоичный интерфейс плагинов ryNet: номера событий, операций, алгоритмов и коды ошибок, общие для ядра и SDK"
+
+[dependencies]

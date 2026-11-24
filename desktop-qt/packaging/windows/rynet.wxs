@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Product Id="*" Name="ryNet" Language="1033" Version="$(var.Version)" Manufacturer="yzewe"
+           UpgradeCode="6d3cf723-5e4d-4f5f-b44d-fb1f5669dc86">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perUser" InstallPrivileges="limited" Platform="x64"
+             Description="ryNet VPN client" Manufacturer="yzewe" />
+    <MajorUpgrade AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize"
+                  DowngradeErrorMessage="A newer version of ryNet is already installed." />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <Icon Id="RyNetIcon" SourceFile="$(var.Ico)" />
+    <Property Id="ARPPRODUCTICON" Value="RyNetIcon" />
+    <Property Id="ARPURLINFOABOUT" Value="https://github.com/yzewe/ryNet" />
+    <Property Id="MSIRESTARTMANAGERCONTROL" Value="Disable" />
+
+    <Property Id="SAVEDINSTALLDIR">
+      <RegistrySearch Id="SavedInstallDir" Root="HKCU" Key="Software\yzewe\ryNet" Name="InstallDir" Type="raw" />
+    </Property>
+    <SetProperty Id="INSTALLDIR" Value="[SAVEDINSTALLDIR]" After="AppSearch" Sequence="both">SAVEDINSTALLDIR AND NOT INSTALLDIR</SetProperty>
+    <SetProperty Id="ARPINSTALLLOCATION" Value="[INSTALLDIR]" After="CostFinalize" Sequence="execute" />
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <WixVariable Id="WixUIDialogBmp" Value="$(sys.SOURCEFILEDIR)msi-dialog.bmp" />
+    <WixVariable Id="WixUIBannerBmp" Value="$(sys.SOURCEFILEDIR)msi-banner.bmp" />
+    <UI>
+      <UIRef Id="WixUI_InstallDir" />
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg" Order="2">NOT Installed</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">1</Publish>
+    </UI>
+
+    <util:CloseApplication Id="CloseRyNet" Target="rynet.exe" CloseMessage="yes" EndSessionMessage="yes"
+                           RebootPrompt="no" Timeout="5" TerminateProcess="1" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="INSTALLDIR" Name="rynet" />
+      </Directory>
+      <Directory Id="ProgramMenuFolder" />
+      <Directory Id="DesktopFolder" />
+    </Directory>
+
+    <DirectoryRef Id="INSTALLDIR">
+      <Component Id="Shortcuts" Guid="{5B0E7C8A-4C1E-4D2B-9F3A-2E6D1A7C9B41}" Win64="yes">
+        <Shortcut Id="MenuShortcut" Directory="ProgramMenuFolder" Name="ryNet" Target="[INSTALLDIR]rynet.exe"
+                  WorkingDirectory="INSTALLDIR" Icon="RyNetIcon" />
+        <Shortcut Id="DesktopShortcut" Directory="DesktopFolder" Name="ryNet" Target="[INSTALLDIR]rynet.exe"
+                  WorkingDirectory="INSTALLDIR" Icon="RyNetIcon" />
+        <RegistryValue Root="HKCU" Key="Software\yzewe\ryNet" Name="msi" Type="integer" Value="1" KeyPath="yes" />
+        <RegistryValue Root="HKCU" Key="Software\yzewe\ryNet" Name="InstallDir" Type="string" Value="[INSTALLDIR]" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\rynet" Type="string" Value="URL:ryNet" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\rynet" Name="URL Protocol" Type="string" Value="" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\rynet\DefaultIcon" Type="string" Value="[INSTALLDIR]rynet.exe,0" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\rynet\shell\open\command" Type="string" Value="&quot;[INSTALLDIR]rynet.exe&quot; &quot;%1&quot;" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\.rnp" Type="string" Value="ryNet.Plugin" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\.rnp" Name="Content Type" Type="string" Value="application/vnd.rynet.plugin" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\ryNet.Plugin" Type="string" Value="ryNet plugin" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\ryNet.Plugin\DefaultIcon" Type="string" Value="[INSTALLDIR]rynet.exe,0" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\ryNet.Plugin\shell\open\command" Type="string" Value="&quot;[INSTALLDIR]rynet.exe&quot; &quot;%1&quot;" />
+        <RemoveFolder Id="RemoveInstallDir" On="uninstall" />
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="Main" Level="1">
+      <ComponentGroupRef Id="AppFiles" />
+      <ComponentRef Id="Shortcuts" />
+    </Feature>
+  </Product>
+</Wix>

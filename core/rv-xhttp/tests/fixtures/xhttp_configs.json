@@ -1,0 +1,167 @@
+[
+ {
+  "profile": "🇵🇱 Польша [Резерв]",
+  "security": "reality",
+  "serverName": "auto.example.com",
+  "xhttpSettings": {
+   "mode": "auto",
+   "host": "",
+   "path": "/api/v1/sync",
+   "extra": {
+    "xmux": {
+     "cMaxReuseTimes": "64-128",
+     "maxConcurrency": "8-16",
+     "maxConnections": 0,
+     "hKeepAlivePeriod": 45,
+     "hMaxRequestTimes": "600-900",
+     "hMaxReusableSecs": "1800-3000"
+    }
+   }
+  }
+ },
+ {
+  "profile": "🇷🇺 Белые списки",
+  "security": "tls",
+  "serverName": "static.example.com",
+  "xhttpSettings": {
+   "mode": "packet-up",
+   "host": "static.example.com",
+   "path": "/api/telemetry.php",
+   "extra": {
+    "xmux": {
+     "cMaxReuseTimes": "16-32",
+     "maxConcurrency": "2-4",
+     "hKeepAlivePeriod": 0,
+     "hMaxReusableSecs": "240-330"
+    },
+    "seqKey": "page",
+    "xPaddingKey": "_ga",
+    "noGRPCHeader": true,
+    "seqPlacement": "path",
+    "uplinkDataKey": "payload",
+    "xPaddingBytes": "256-1024",
+    "xPaddingHeader": "X-Cache",
+    "xPaddingMethod": "tokenish",
+    "uplinkHTTPMethod": "GET",
+    "xPaddingObfsMode": true,
+    "xPaddingPlacement": "queryInHeader",
+    "scMaxBufferedPosts": 500,
+    "scMaxEachPostBytes": 1000000,
+    "uplinkDataPlacement": "body",
+    "serverMaxHeaderBytes": 16384
+   }
+  }
+ },
+ {
+  "profile": "🇷🇺 Белые списки 2",
+  "security": "tls",
+  "serverName": "img.example.com",
+  "xhttpSettings": {
+   "mode": "packet-up",
+   "host": "img.example.com",
+   "path": "/api/telemetry2.php",
+   "extra": {
+    "xmux": {
+     "cMaxReuseTimes": "16-32",
+     "maxConcurrency": "2-4",
+     "hKeepAlivePeriod": 0,
+     "hMaxReusableSecs": "240-330"
+    },
+    "seqKey": "page",
+    "xPaddingKey": "_ga",
+    "noGRPCHeader": true,
+    "seqPlacement": "query",
+    "sessionIdKey": "sid",
+    "uplinkDataKey": "payload",
+    "xPaddingBytes": "256-1024",
+    "sessionIdTable": "................................................................abcdefghijklmnopqrstuvwxyz0123456789",
+    "xPaddingHeader": "Referer",
+    "xPaddingMethod": "tokenish",
+    "sessionIdLength": 64,
+    "uplinkHTTPMethod": "GET",
+    "xPaddingObfsMode": true,
+    "xPaddingPlacement": "queryInHeader",
+    "scMaxBufferedPosts": 500,
+    "scMaxEachPostBytes": 1000000,
+    "sessionIdPlacement": "path",
+    "uplinkDataPlacement": "body",
+    "serverMaxHeaderBytes": 16384
+   }
+  }
+ },
+ {
+  "profile": "🇰🇿 Казахстан [Каскад]",
+  "security": "reality",
+  "serverName": "msk-kz.example.com",
+  "xhttpSettings": {
+   "mode": "auto",
+   "host": "",
+   "path": "/api/v1/feed"
+  }
+ },
+ {
+  "profile": "🇯🇵 Япония [Каскад]",
+  "security": "reality",
+  "serverName": "msk-jp.example.com",
+  "xhttpSettings": {
+   "mode": "auto",
+   "host": "",
+   "path": "/api/v1/feed-jp"
+  }
+ },
+ {
+  "profile": "🇨🇭 Швейцария [Каскад]",
+  "security": "reality",
+  "serverName": "msk-ch.example.com",
+  "xhttpSettings": {
+   "mode": "auto",
+   "host": "",
+   "path": "/api/v1/feed-ch"
+  }
+ },
+ {
+  "profile": "🇸🇬 Сингапур [Каскад]",
+  "security": "reality",
+  "serverName": "msk-sg.example.com",
+  "xhttpSettings": {
+   "mode": "auto",
+   "host": "",
+   "path": "/api/v1/feed-sg"
+  }
+ },
+ {
+  "profile": "🇷🇺 Белые списки 3",
+  "security": "tls",
+  "serverName": "media.example.com",
+  "xhttpSettings": {
+   "mode": "packet-up",
+   "host": "media.example.com",
+   "path": "/v2/media/segment",
+   "extra": {
+    "xmux": {
+     "cMaxReuseTimes": "16-32",
+     "maxConcurrency": "2-4",
+     "hKeepAlivePeriod": 0,
+     "hMaxReusableSecs": "240-330"
+    },
+    "seqKey": "seg",
+    "xPaddingKey": "rid",
+    "noGRPCHeader": true,
+    "seqPlacement": "query",
+    "uplinkDataKey": "X-Part",
+    "xPaddingBytes": "128-768",
+    "xPaddingHeader": "X-Request-Id",
+    "xPaddingMethod": "tokenish",
+    "uplinkChunkSize": "3000-3800",
+    "uplinkHTTPMethod": "GET",
+    "xPaddingObfsMode": true,
+    "xPaddingPlacement": "queryInHeader",
+    "scMaxBufferedPosts": 500,
+    "scMaxEachPostBytes": "8000-10000",
+    "uplinkDataPlacement": "header",
+    "scMinPostsIntervalMs": "3-6",
+    "serverMaxHeaderBytes": 24576
+   }
+  }
+ }
+]

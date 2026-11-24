@@ -1,0 +1,25 @@
+{
+      "log": {"level": "warn"},
+      "outbounds": [
+        {"type": "selector", "tag": "proxy", "outbounds": ["auto", "🇩🇪 DE", "🇳🇱 NL", "HY"]},
+        {"type": "urltest", "tag": "auto", "outbounds": ["🇩🇪 DE", "🇳🇱 NL", "HY"], "interval": "3m"},
+        {"type": "vless", "tag": "🇩🇪 DE", "server": "de.example.net", "server_port": 443,
+         "uuid": "9205c503-358f-4d8d-a081-20c98eddf64a", "flow": "xtls-rprx-vision",
+         "tls": {"enabled": true, "server_name": "www.microsoft.com",
+                 "utls": {"enabled": true, "fingerprint": "firefox"},
+                 "reality": {"enabled": true, "public_key": "Gu_QdtOX6E8pZcYvDWgHKA5dxcit7hrpU27sizCEWXg", "short_id": "e0"}}},
+        {"type": "trojan", "tag": "🇳🇱 NL", "server": "nl.example.net", "server_port": 8443, "password": "pw",
+         "tls": {"enabled": true, "server_name": "nl.example.net", "alpn": ["http/1.1"]},
+         "transport": {"type": "ws", "path": "/ws", "headers": {"Host": "cdn.example.net"}, "max_early_data": 2048, "early_data_header_name": "Sec-WebSocket-Protocol"}},
+        {"type": "hysteria2", "tag": "HY", "server": "hy.example.net", "server_port": 443,
+         "server_ports": ["20000:30000"], "hop_interval": "30s", "up_mbps": 50, "down_mbps": 200,
+         "password": "secret", "obfs": {"type": "salamander", "password": "ob"},
+         "tls": {"enabled": true, "server_name": "www.bing.com", "insecure": true}},
+        {"type": "tuic", "tag": "TUIC", "server": "t.example.net", "server_port": 443},
+        {"type": "shadowsocks", "tag": "SS", "server": "1.2.3.4", "server_port": 8388, "method": "2022-blake3-aes-128-gcm", "password": "k"},
+        {"type": "direct", "tag": "direct"},
+        {"type": "block", "tag": "block"},
+        {"type": "dns", "tag": "dns-out"}
+      ],
+      "route": {"final": "proxy"}
+    }

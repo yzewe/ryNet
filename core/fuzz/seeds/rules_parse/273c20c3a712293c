@@ -1,0 +1,4 @@
+DOMAIN,a.test
+DOMAIN-SUFFIX,b.test
+IP-CIDR,10.0.0.0/8,no-resolve
+MATCH,x

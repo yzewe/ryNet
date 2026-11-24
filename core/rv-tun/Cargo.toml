@@ -1,0 +1,25 @@
+[package]
+name = "rv-tun"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+
+[features]
+chaos = []
+
+[dependencies]
+rv-stats = { path = "../rv-stats" }
+tokio = { version = "1.53.1", features = ["net", "io-util", "time", "rt", "macros", "sync"] }
+tracing = "0.1.44"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2.189"
+
+[dev-dependencies]
+tokio = { version = "1.53.1", features = ["test-util"] }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_Networking_WinSock"] }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(kani)", "cfg(fuzzing)"] }

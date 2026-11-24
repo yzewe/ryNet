@@ -1,0 +1,7 @@
+payload:
+  - DOMAIN-SUFFIX,google.com
+  - IP-CIDR,1.0.0.0/8,no-resolve
+  - "+.example.org"
+  - 2001:db8::/32
+RULE-SET,https://x.test/r.yaml,PROXY,ipcidr
+AND,((DOMAIN,a.test),(DST-PORT,443/80)),REJECT

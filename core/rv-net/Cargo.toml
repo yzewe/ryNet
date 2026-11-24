@@ -1,0 +1,23 @@
+[package]
+name = "rv-net"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+
+[dependencies]
+bytes = "1.12.1"
+h2 = "0.4.20"
+http = "1.5.0"
+rv-tls = { path = "../rv-tls" }
+libc = "0.2.189"
+ring = "0.17.14"
+socket2 = { version = "0.6.5", features = ["all"] }
+thiserror = "2.0.20"
+tokio = { version = "1.53.1", features = ["net", "time", "rt", "macros", "io-util"] }
+tracing = "0.1.44"
+
+[dev-dependencies]
+tokio = { version = "1.53.1", features = ["full"] }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(kani)"] }

@@ -1,0 +1,3 @@
+["vless://8b775467-5bc8-4344-a79e-90d795f324de@1.2.3.4:443?security=tls&sni=a.example#Link",
+        {"remarks":"Config","outbounds":[{"tag":"proxy","protocol":"freedom"}]},
+        "trojan://pw@t.example:443?sni=t.example#Trojan"]

@@ -1,0 +1,20 @@
+[package]
+name = "rv-vless"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+
+[dependencies]
+bytes = "1.12.1"
+rand = "0.10.3"
+ring = "0.17.14"
+rv-tls = { version = "0.1.0", path = "../rv-tls" }
+thiserror = "2.0.20"
+tokio = { version = "1.53.1", features = ["io-util", "time"] }
+tracing = "0.1.44"
+
+[dev-dependencies]
+tokio = { version = "1.53.1", features = ["full"] }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(kani)", "cfg(fuzzing)"] }

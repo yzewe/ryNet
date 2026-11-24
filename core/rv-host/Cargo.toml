@@ -1,0 +1,21 @@
+[package]
+name = "rv-host"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+
+[dependencies]
+rv-core = { path = "../rv-core" }
+rv-stats = { path = "../rv-stats" }
+rv-rules = { path = "../rv-rules" }
+tokio = { version = "1.53.1", features = ["rt", "net", "time", "sync", "macros", "io-util"] }
+tracing = "0.1.44"
+
+rv-tun = { path = "../rv-tun" }
+
+[dev-dependencies]
+rv-config = { path = "../rv-config" }
+tokio = { version = "1.53.1", features = ["rt", "net", "time", "sync", "macros", "io-util"] }
+
+[target.'cfg(target_os = "linux")'.dev-dependencies]
+libc = "0.2.189"

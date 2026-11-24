@@ -1,0 +1,55 @@
+[workspace]
+resolver = "3"
+members = ["rv-plugin-abi", "rv-config", "rv-tls", "rv-net", "rv-vless", "rv-core", "rv-cli", "rv-tun", "rv-android", "rv-rules", "rv-xhttp", "rv-stats", "rv-desktop", "rv-host", "rv-ios"]
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+license = "GPL-3.0-or-later"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+opt-level = "s"
+
+[profile.dev.package."*"]
+opt-level = 2
+
+[profile.release.package]
+rv-tun.opt-level = 3
+rv-tls.opt-level = 3
+ml-kem.opt-level = 3
+module-lattice.opt-level = 3
+hybrid-array.opt-level = 3
+keccak.opt-level = 3
+sha3.opt-level = 3
+curve25519-dalek.opt-level = 3
+x25519-dalek.opt-level = 3
+rv-config.opt-level = "z"
+rv-rules.opt-level = "z"
+rv-stats.opt-level = "z"
+jni.opt-level = "z"
+serde_json.opt-level = "z"
+serde.opt-level = "z"
+regex-lite.opt-level = "z"
+aho-corasick.opt-level = "z"
+brotli-decompressor.opt-level = "z"
+ruzstd.opt-level = "z"
+miniz_oxide.opt-level = "z"
+rustls-webpki.opt-level = "z"
+base64.opt-level = "z"
+http.opt-level = "z"
+
+[patch.crates-io]
+quinn-proto = { path = "vendor/quinn-proto-0.11.18" }
+h2 = { path = "vendor/h2-0.4.20" }
+rustls = { path = "vendor/rustls-0.23.45" }
+tokio = { path = "vendor/tokio-1.53.1" }
+
+[profile.sim]
+inherits = "release"
+lto = false
+codegen-units = 16
+opt-level = 1

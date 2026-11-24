@@ -1,0 +1,10 @@
+/core/target
+/core/fuzz/target
+/desktop-qt/build*/
+/android/local.properties
+/android/app/src/main/jniLibs/
+.gradle/
+.kotlin/
+build/
+*.pcap
+__pycache__/

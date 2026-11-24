@@ -1,0 +1,27 @@
+[
+  {"remarks": "🇫🇮 Финляндия", "meta": {},
+   "outbounds": [
+    {"tag": "proxy", "protocol": "vless",
+     "settings": {"vnext": [{"address": "fi.example.com", "port": 443, "users": [{"id": "11111111-2222-3333-4444-555555555555", "encryption": "none", "flow": "xtls-rprx-vision"}]}]},
+     "streamSettings": {"network": "tcp", "tcpSettings": {}, "security": "reality",
+       "realitySettings": {"serverName": "edge.example.com", "publicKey": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8", "shortId": "abcd", "fingerprint": "firefox"},
+       "sockopt": {"tcpMaxSeg": 1440, "tcpNoDelay": true, "tcpFastOpen": true, "happyEyeballs": {"interleave": 1, "tryDelayMs": 250, "prioritizeIPv6": false, "maxConcurrentTry": 4}}}},
+    {"tag": "direct", "protocol": "freedom"},
+    {"tag": "block", "protocol": "blackhole"}
+   ]},
+  {"remarks": "🇷🇺 Белые списки",
+   "outbounds": [
+    {"tag": "proxy", "protocol": "vless",
+     "settings": {"vnext": [{"address": "static.example.com", "port": 443, "users": [{"id": "11111111-2222-3333-4444-555555555555", "encryption": "none", "flow": ""}]}]},
+     "streamSettings": {"network": "xhttp", "xhttpSettings": {"mode": "packet-up", "path": "/x"}, "security": "tls",
+       "tlsSettings": {"serverName": "static.example.com", "fingerprint": "firefox", "alpn": ["h2"]},
+       "sockopt": {"dialerProxy": "fragment"}}},
+    {"tag": "fragment", "protocol": "freedom", "settings": {"fragment": {"length": "50-100", "packets": "tlshello", "interval": "10-20"}, "domainStrategy": "AsIs"}}
+   ]},
+  {"remarks": "🇱🇹 Литва [Для игр]",
+   "outbounds": [
+    {"tag": "proxy", "protocol": "hysteria", "settings": {"address": "lt.example.com", "port": 443, "version": 2},
+     "streamSettings": {"network": "hysteria", "hysteriaSettings": {"version": 2, "auth": "secret-auth"}, "security": "tls",
+       "tlsSettings": {"serverName": "lt.example.com", "fingerprint": "firefox", "alpn": ["h3"]}}}
+   ]}
+]

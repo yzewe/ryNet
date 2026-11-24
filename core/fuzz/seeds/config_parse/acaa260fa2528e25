@@ -1,0 +1,1 @@
+{"outbounds":[{"type":"vless","tag":"proxy","server":"a"},{"type":"direct","tag":"direct"}]}

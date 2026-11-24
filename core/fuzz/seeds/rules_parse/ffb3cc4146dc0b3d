@@ -1,0 +1,7 @@
+PROCESS-NAME,com.app,DIRECT
+PROCESS-NAME-REGEX,^foo,PROXY
+AND,((DOMAIN-SUFFIX,a.test),(NETWORK,tcp)),DIRECT
+OR,((DOMAIN,b.test),(DOMAIN,c.test)),PROXY
+RULE-SET,https://example/rules,PROXY
+RULE-SET,u,DIRECT,domain
+AND,((DOMAIN,a),(DOMAIN,b)),PROXY

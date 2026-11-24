@@ -1,0 +1,8 @@
+{"rules":[
+            {"port":443,"outboundTag":"a"},
+            {"port":"1000-9000,8443","outboundTag":"b"},
+            {"port":[53,"5000-5001"],"outboundTag":"c"},
+            {"port":"junk","outboundTag":"never"},
+            {"domain":["full:Exact.example","domain:Suffix.example"],"outboundTag":"d"},
+            {"domain":["regexp:^ads\\d+\\.example\\.org$","regexp:(^|\\.)track\\.net$"],"outboundTag":"re"}
+        ]}

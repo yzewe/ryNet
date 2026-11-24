@@ -1,0 +1,40 @@
+[package]
+name = "rv-tls"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+
+[dependencies]
+bytes = "1.12.1"
+h2 = "0.4.20"
+http = "1.5.0"
+flate2 = { version = "1", default-features = false, features = ["rust_backend"] }
+tokio = { version = "1", features = ["io-util", "time", "macros"] }
+thiserror = "2"
+x25519-dalek = { version = "3.0.0", features = ["static_secrets", "getrandom"] }
+ml-kem = "0.3.2"
+ml-dsa = "0.1.1"
+ring = "0.17.14"
+aes = "0.9.3"
+sha3 = "0.11.0"
+rustls-webpki = { version = "0.103.15", default-features = false, features = ["ring", "std"] }
+rand = "0.10.3"
+tracing = "0.1.44"
+brotli-decompressor = "6.0.0"
+miniz_oxide = "0.9.1"
+ruzstd = "0.9.0"
+rustls-pki-types = { version = "1.15.1", features = ["std"] }
+p521 = { version = "0.14.0", default-features = false, features = ["ecdh", "ecdsa", "std"] }
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+webpki-roots = "1.0.9"
+
+[dev-dependencies]
+hex = "0.4.3"
+rcgen = { version = "0.14.10", default-features = false, features = ["ring", "pem", "crypto"] }
+rustls = { version = "0.23.45", default-features = false, features = ["ring", "std", "tls12"] }
+tokio = { version = "1", features = ["full"] }
+tokio-rustls = { version = "0.26.5", default-features = false, features = ["ring"] }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(kani)", "cfg(fuzzing)"] }

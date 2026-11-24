@@ -1,0 +1,6 @@
+{"rules":[
+            {"user":["a@b"],"outboundTag":"never"},
+            {"sourceIP":["10.0.0.0/8"],"outboundTag":"never"},
+            {"localOS":["linux"],"outboundTag":"never"},
+            {"localOS":["android"],"port":"444","outboundTag":"os"}
+        ]}

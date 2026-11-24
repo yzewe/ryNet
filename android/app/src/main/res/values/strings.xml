@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ryNet</string>
+    <string name="channel_vpn">Connection</string>
+    <string name="status_on">Connected</string>
+    <string name="status_off">Disconnected</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_error">Could not connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="widget_description">Turn on or off with one tap</string>
+</resources>

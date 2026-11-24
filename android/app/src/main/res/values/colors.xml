@@ -1,0 +1,14 @@
+<resources>
+    <color name="window_bg">#F6FBF7</color>
+    <color name="ic_bg">#F6D8CD</color>
+    <color name="widget_off_bg">#FFF1EC</color>
+    <color name="widget_off_fg">#2B1B16</color>
+    <color name="widget_off_fg2">#6F5B55</color>
+    <color name="widget_badge_off_bg">#F6D8CD</color>
+    <color name="widget_badge_off_fg">#8C4A33</color>
+    <color name="widget_on_bg">#E8478F</color>
+    <color name="widget_on_fg">#FFFFFF</color>
+    <color name="widget_on_fg2">#FFE3EE</color>
+    <color name="widget_badge_on_bg">#FFFFFF</color>
+    <color name="widget_badge_on_fg">#E8478F</color>
+</resources>

@@ -1,0 +1,1 @@
+[{"remarks":"H","outbounds":[{"tag":"proxy","protocol":"hysteria2","settings":{"address":"h.example","port":443,"password":"pw"},"streamSettings":{"security":"tls","tlsSettings":{"serverName":"h.example"}}}]}]

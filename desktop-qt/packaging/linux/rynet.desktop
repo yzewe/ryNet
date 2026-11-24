@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=ryNet
+GenericName=VPN
+Comment=VPN client
+Comment[ru]=VPN-клиент
+Exec=rynet %U
+Icon=rynet
+Terminal=false
+Categories=Network;
+Keywords=vpn;proxy;vless;trojan;hysteria;
+StartupWMClass=rynet
+MimeType=x-scheme-handler/rynet;application/vnd.rynet.plugin;

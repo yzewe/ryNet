@@ -1,0 +1,96 @@
+[package]
+name = "rv-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2024"
+
+[package.metadata]
+cargo-fuzz = true
+
+[workspace]
+
+[patch.crates-io]
+quinn-proto = { path = "../vendor/quinn-proto-0.11.18" }
+h2 = { path = "../vendor/h2-0.4.20" }
+rustls = { path = "../vendor/rustls-0.23.45" }
+
+[dependencies]
+libfuzzer-sys = "0.4"
+serde_json = "1"
+rv-config = { path = "../rv-config" }
+rv-core = { path = "../rv-core" }
+rv-rules = { path = "../rv-rules" }
+rv-tls = { path = "../rv-tls" }
+rv-tun = { path = "../rv-tun" }
+rv-vless = { path = "../rv-vless" }
+rv-xhttp = { path = "../rv-xhttp" }
+
+[[bin]]
+name = "config_parse"
+path = "fuzz_targets/config_parse.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "link_parse"
+path = "fuzz_targets/link_parse.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "rules_parse"
+path = "fuzz_targets/rules_parse.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "routing_parse"
+path = "fuzz_targets/routing_parse.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "tun_packet"
+path = "fuzz_targets/tun_packet.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "xhttp_headers"
+path = "fuzz_targets/xhttp_headers.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "core_server"
+path = "fuzz_targets/core_server.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "tls_server"
+path = "fuzz_targets/tls_server.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "vless_server"
+path = "fuzz_targets/vless_server.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "tun_dns"
+path = "fuzz_targets/tun_dns.rs"
+test = false
+doc = false
+bench = false

@@ -1,0 +1,12 @@
+[
+      {"remarks": "ws", "meta": {"serverDescription": "классика"}, "outbounds": [{"tag": "proxy", "protocol": "vless",
+        "settings": {"vnext": [{"address": "1.2.3.4", "port": 443, "users": [{"id": "8b775467-5bc8-4344-a79e-90d795f324de"}]}]},
+        "streamSettings": {"network": "ws", "wsSettings": {"path": "/kto?ed=2048&b=2", "headers": {"Host": "ws.example"}}}}]},
+      {"remarks": "hy", "outbounds": [{"tag": "proxy", "protocol": "hysteria", "settings": {"address": "h.example", "port": 443, "version": 2},
+        "streamSettings": {"network": "hysteria", "hysteriaSettings": {"version": 2, "auth": "a"}, "security": "tls",
+          "tlsSettings": {"serverName": "h.example", "alpn": ["h3"]},
+          "finalmask": {"udp": [{"type": "salamander", "settings": {"password": "pw"}}],
+                        "quicParams": {"congestion": "brutal", "brutalUp": "100 mbps", "keepAlivePeriod": 15, "udpHop": {"ports": "20000-20002,443", "interval": "5-10"}}}}}]},
+      {"remarks": "broken", "outbounds": [{"tag": "proxy", "protocol": "vless", "settings": {"vnext": []}}]},
+      {"remarks": "vmess", "outbounds": [{"tag": "proxy", "protocol": "vmess"}]}
+    ]

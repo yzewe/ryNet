@@ -1,0 +1,7 @@
+# ryNet: the same rule as 49-rynet-resolved.rules for polkit 0.105 (Ubuntu 22.04, Debian 11), which has no JS rules.
+# Only ResultActive is set: ResultAny and ResultInactive stay unset, so the default policy (auth_admin) applies to them.
+# Not narrowed to the rynet0 link: the resolve1 actions carry no link name in their details.
+[ryNet: systemd-resolved DNS for the tunnel]
+Identity=unix-user:*
+Action=org.freedesktop.resolve1.set-dns-servers;org.freedesktop.resolve1.set-domains;org.freedesktop.resolve1.set-default-route;org.freedesktop.resolve1.revert
+ResultActive=yes

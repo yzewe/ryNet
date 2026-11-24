@@ -1,0 +1,45 @@
+[package]
+name = "rv-desktop"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+description = "Ядро ryNet для Linux: процесс для окна (JSON-строки в stdin/stdout) — подписки, пинг, локальный SOCKS5/HTTP-прокси"
+
+[[bin]]
+name = "rynet-core"
+path = "src/main.rs"
+
+[[bin]]
+name = "rynet-cli"
+path = "src/cli.rs"
+
+[features]
+plugins = ["rv-core/plugins"]
+
+[dependencies]
+rv-config = { path = "../rv-config" }
+rv-core = { path = "../rv-core" }
+rv-host = { path = "../rv-host" }
+rv-net = { path = "../rv-net" }
+rv-stats = { path = "../rv-stats" }
+libc = "0.2.189"
+ring = "0.17.14"
+ureq = "3"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+base64 = "0.23.1"
+tokio = { version = "1.53.1", features = ["rt", "net", "io-util", "time", "macros", "sync", "signal"] }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
+
+rv-tun = { path = "../rv-tun" }
+
+[dev-dependencies]
+tokio = { version = "1.53.1", features = ["test-util"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+ksni = "0.3.6"
+
+[target.'cfg(windows)'.dependencies]
+wintun = "0.5.1"
+windows-sys = { version = "0.61", features = ["Win32_UI_Shell", "Win32_Graphics_Gdi", "Win32_System_LibraryLoader", "Win32_Foundation", "Win32_Globalization", "Win32_Security", "Win32_System_Threading", "Win32_NetworkManagement_IpHelper", "Win32_NetworkManagement_WindowsFilteringPlatform", "Win32_System_Rpc", "Win32_NetworkManagement_Ndis", "Win32_Networking_WinSock", "Win32_Graphics_Dwm", "Win32_UI_WindowsAndMessaging", "Win32_System_SystemInformation", "Wdk_System_SystemServices", "Win32_System_Registry"]}

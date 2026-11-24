@@ -1,0 +1,5 @@
+[{"remarks": "f", "outbounds": [
+        {"tag": "proxy", "protocol": "vless", "settings": {"address": "a.example", "port": 443, "id": "9205c503-358f-4d8d-a081-20c98eddf64a", "flow": "xtls-rprx-vision", "encryption": "none"},
+         "streamSettings": {"security": "tls", "tlsSettings": {"serverName": "a.example"}}},
+        {"tag": "t", "protocol": "trojan", "settings": {"address": "b.example", "port": 8443, "password": "pw"}}
+    ]}]

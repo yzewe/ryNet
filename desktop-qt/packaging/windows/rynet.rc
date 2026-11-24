@@ -1,0 +1,35 @@
+#include <winver.h>
+#include "rynet_version.h"
+
+IDI_ICON1 ICON "rynet.ico"
+
+1 24 "rynet.manifest"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION RYNET_VERSION_MAJOR, RYNET_VERSION_MINOR, RYNET_VERSION_PATCH, 0
+PRODUCTVERSION RYNET_VERSION_MAJOR, RYNET_VERSION_MINOR, RYNET_VERSION_PATCH, 0
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+FILEFLAGS 0
+FILEOS VOS_NT_WINDOWS32
+FILETYPE VFT_APP
+FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "yzewe"
+            VALUE "FileDescription", "ryNet VPN client"
+            VALUE "FileVersion", RYNET_VERSION_STR
+            VALUE "InternalName", "rynet"
+            VALUE "LegalCopyright", "GPL-3.0-or-later"
+            VALUE "OriginalFilename", "rynet.exe"
+            VALUE "ProductName", "ryNet"
+            VALUE "ProductVersion", RYNET_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END

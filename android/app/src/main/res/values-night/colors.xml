@@ -1,0 +1,8 @@
+<resources>
+    <color name="window_bg">#0F1512</color>
+    <color name="widget_off_bg">#2B1F1B</color>
+    <color name="widget_off_fg">#F6E5DF</color>
+    <color name="widget_off_fg2">#C9B3AC</color>
+    <color name="widget_badge_off_bg">#4A342D</color>
+    <color name="widget_badge_off_fg">#FFB59E</color>
+</resources>

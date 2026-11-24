@@ -1,0 +1,5 @@
+[{"remarks":"c","outbounds":[
+        {"tag":"proxy","protocol":"trojan","settings":{"servers":[{"address":"exit.example","port":443,"password":"p"}]},
+         "streamSettings":{"security":"tls"},"proxySettings":{"tag":"entry","transportLayer":true}},
+        {"tag":"entry","protocol":"trojan","settings":{"servers":[{"address":"entry.example","port":443,"password":"p"}]},"streamSettings":{"security":"tls"}}
+    ]}]
