@@ -1,25 +1,20 @@
-<p align="center">
-  <img src=".github/assets/cover.jpg" alt="ryNet" width="100%">
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/banner-dark.webp">
+  <img src=".github/assets/banner-light.webp" alt="ryNet — защищённые подключения на своём ядре. Android, Windows и Linux" width="100%">
+</picture>
 
 <p align="center">
-  <a href="https://rynet.app/download/"><img src="https://img.shields.io/badge/скачать-rynet.app-F08A4B?style=for-the-badge" alt="Скачать"></a>
-  <a href="https://t.me/rynetforum"><img src="https://img.shields.io/badge/форум-telegram-2AABEE?style=for-the-badge&logo=telegram&logoColor=white" alt="Форум в Telegram"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/лицензия-GPL--3.0-4B5563?style=for-the-badge" alt="GPL-3.0"></a>
+  <a href="https://rynet.app/download/"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/btn-download-dark.webp"><img src=".github/assets/btn-download-light.webp" alt="Скачать" height="48"></picture></a>
+  <a href="https://t.me/rynetforum"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/btn-forum-dark.webp"><img src=".github/assets/btn-forum-light.webp" alt="Форум в Telegram" height="48"></picture></a>
+  <a href="https://rynet.app/"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/btn-site-dark.webp"><img src=".github/assets/btn-site-light.webp" alt="rynet.app" height="48"></picture></a>
 </p>
 
-Клиент для защищённых подключений со своим ядром на Rust: Android, Android TV, Windows и Linux.
+<p align="center">Клиент для защищённых подключений со своим ядром на Rust:<br>Android, Android TV, Windows и Linux.</p>
 
-## Возможности
-
-- Свой TCP-стек в userspace: без трафика ядро не просыпается.
-- Маршрутизация по приложениям, доменам и IP.
-- Автовыбор сервера и переход на резервный при сбое.
-- Трафик блокируется, пока сервер не отвечает.
-- Цепочка из двух серверов.
-- TUN или локальный SOCKS5/HTTP-прокси.
-- Android TV: подписки переносятся с телефона по QR-коду.
-- `rynet-cli` для Linux и Windows.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/features-dark.webp">
+  <img src=".github/assets/features-light.webp" alt="Свои правила, популярные протоколы, бережёт батарею, без утечек при сбое, цепочка из двух серверов, Android TV" width="100%">
+</picture>
 
 ## Протоколы
 
@@ -27,6 +22,8 @@ VLESS (REALITY, TLS, XTLS Vision, XHTTP, gRPC, WebSocket, HTTPUpgrade, VLESS Enc
 VMess AEAD · Trojan · Hysteria 2 · Shadowsocks (AEAD и 2022) · SOCKS · HTTP
 
 ClientHello совпадает с uTLS: Chrome, Firefox, Safari, iOS, Edge.
+
+Работает через TUN или как локальный SOCKS5/HTTP-прокси, для серверов есть `rynet-cli`.
 
 ## Сборка
 
